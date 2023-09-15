@@ -19,7 +19,8 @@ var login = {
   username: "Firefox",
   password: "Ohdjsjanxn",
 };
-var database = [login];
+
+console.log(login.username);
 
 var newsfeed = [
   {
@@ -35,3 +36,18 @@ var newsfeed = [
     timeline: "@Basito No be you go tell me wetin I go do",
   },
 ];
+
+var userNameData = prompt("Enter your username");
+var userPasswordData = prompt("Enter your password");
+
+// functions, methods & condition
+
+function signIn(user, pass) {
+  if (user === login.username && pass === login.password) {
+    console.log(newsfeed);
+  } else {
+    alert("Wrong username or password");
+  }
+}
+
+signIn(userNameData, userPasswordData);
