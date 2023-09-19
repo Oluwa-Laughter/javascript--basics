@@ -1,2 +1,3 @@
 # learning-javascript
-Basics of Javascript
+
+Basics and advance Javascript in web development
