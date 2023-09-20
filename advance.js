@@ -47,3 +47,103 @@ const locateMe = (username = "firefox", location = "New york") => {
 };
 
 arrow();
+
+// FUNCTON inside of a function
+//closure
+const addTo = (x) => (y) => x + y;
+const addToTen = addTo(10);
+addToTen(3);
+
+// currying
+// const sum = (a, b) => a + b;
+const curriedSum = (a) => (b) => a + b;
+curriedSum(30)(1);
+
+const add5 = curriedSum(5);
+add5(12);
+
+//Composing
+const compose = (f, g) => (a) => f(g(a));
+const add1 = (num) => num + 1;
+const add8 = (num) => num + 8;
+compose(add1, add8)(10);
+
+// Advance Array Method
+
+const arrayOfObj = [
+  {
+    username: "john",
+    team: "red",
+    score: 5,
+    items: ["ball", "book", "pen"],
+  },
+  {
+    username: "becky",
+    team: "blue",
+    score: 10,
+    items: ["tape", "backpack", "pen"],
+  },
+  {
+    username: "susy",
+    team: "red",
+    score: 55,
+    items: ["ball", "eraser", "pen"],
+  },
+  {
+    username: "tyson",
+    team: "green",
+    score: 1,
+    items: ["book", "pen"],
+  },
+];
+
+// forEach
+const putForEach = [];
+
+const arrayForEach = arrayOfObj.forEach((user) => {
+  let { username } = user;
+  username = username + "!";
+  putForEach.push(username);
+});
+
+console.log(arrayForEach);
+
+//  map()
+const arrayMap = arrayOfObj.map((user) => {
+  let { username } = user;
+  username = username + "?";
+  return username;
+});
+
+console.log(arrayMap);
+
+const arrayNum = [1, 2, 4, 5, 8, 9];
+const newArrayNum = arrayNum.map((num) => num * 2);
+
+// filter()
+const arrayFilter = arrayOfObj.filter((user) => {
+  return user.team === "red";
+});
+
+console.log(arrayFilter);
+
+//  reduce(acc, item)
+const arrayReduce = arrayOfObj.reduce((acc, user) => {
+  return acc + user.score;
+}, 0);
+
+console.log(arrayReduce);
+
+// map All users
+const mapAllUsers = arrayOfObj.map((user) => {
+  return user;
+});
+console.log(mapAllUsers);
+
+// map all users and add "!" to the items
+const userInfo = arrayOfObj.map((user) => {
+  user.items = user.items.map((item) => {
+    return item + "!";
+  });
+  return user;
+});
