@@ -68,7 +68,7 @@ const add1 = (num) => num + 1;
 const add8 = (num) => num + 8;
 compose(add1, add8)(10);
 
-// Advance Array Method
+// Advance Arrays Method
 
 const arrayOfObj = [
   {
@@ -147,3 +147,79 @@ const userInfo = arrayOfObj.map((user) => {
   });
   return user;
 });
+
+// advance Objects methods
+
+const object1 = { a: 5 };
+const object2 = object1;
+const object3 = object2;
+const object4 = { a: 5 };
+object1.a = 4;
+
+console.log(object1);
+console.log(object2);
+console.log(object3);
+console.log(object4);
+
+class Animal {
+  constructor(name, type, color) {
+    this.name = name;
+    this.type = type;
+    this.color = color;
+  }
+}
+
+class Mamal extends Animal {
+  constructor(name, type, color) {
+    super(name, type, color);
+  }
+
+  sound() {
+    console.log(
+      `Mooo my name is ${this.name}, I am a ${this.type} and my color is ${this.color}`
+    );
+  }
+}
+
+const cow = new Mamal("Daisy", "cow", "black");
+
+// ES 7
+
+// Includes
+const dragons = ["Tim", "Johnathan", "Sandy", "Sarah"];
+console.log(dragons.includes("John"));
+
+const checkForJohn = dragons.filter((check) => check.includes("John"));
+console.log(checkForJohn);
+
+// Exponentiation operator
+const exp = (k) => k ** 100;
+exp(2);
+exp(10000);
+
+// ES 8
+
+const startLine = "      ||<- Start line";
+let turtle = "🐢";
+let rabbit = "🐇";
+
+turtle = turtle.padStart(9);
+rabbit = rabbit.padStart(9);
+
+console.log(startLine);
+console.log(turtle);
+console.log(rabbit);
+
+turtle = turtle.trim().padEnd(9, "=");
+console.log(turtle);
+
+const obj = {
+  my: "name",
+  is: "Rudolf",
+  the: "raindeer",
+};
+
+let objEntries = Object.entries(obj);
+
+let reArrange = objEntries.map((value) => value.join(" ")).join(" ");
+console.log(reArrange);
