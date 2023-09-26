@@ -28,11 +28,10 @@ const okObj = { a1, b2, c2 };
 // Template strings
 const message = `Hello ${firstName} have I met you before? I think we met in ${city} last summer no???`;
 
-// default arguments
-// default age to 10;
+// default parameter in function
 const isValidage = (age = 10) => age;
 
-// symbol
+// Symbol()- JS type
 const x2 = Symbol(person);
 const y2 = Symbol(okObj);
 const z = Symbol("This is my first symbol");
@@ -99,7 +98,6 @@ const arrayOfObj = [
 
 // forEach
 const putForEach = [];
-
 const arrayForEach = arrayOfObj.forEach((user) => {
   let { username } = user;
   username = username + "!";
@@ -220,6 +218,44 @@ const obj = {
 };
 
 let objEntries = Object.entries(obj);
+console.log(objEntries);
 
 let reArrange = objEntries.map((value) => value.join(" ")).join(" ");
 console.log(reArrange);
+// OR
+console.log(
+  Object.entries(obj)
+    .map((value) => value.join(" "))
+    .join(" ")
+);
+
+// ES 9 + Async Awaits
+
+// ES10
+
+// flat()
+const arrFlaten = [[1], [2], [3], [[[4]]], [[[5]]]];
+arrFlaten.flat(2);
+
+const trapped = [[[[[[[[[[[[[[[[[[[[[[[[[[3]]]]]]]]]]]]]]]]]]]]]]]]]];
+trapped.flat(50);
+
+const greeting = [
+  ["Hello", "young", "grasshopper!"],
+  ["you", "are"],
+  ["learning", "fast!"],
+];
+
+// flatMap()
+console.log(greeting.flatMap((mapped) => mapped.join(" ").join(" ")));
+
+// trimStart() trimEnd()
+const userEmail = "     cannotfillemailformcorrectly@gmail.com     ";
+userEmail.trimStart().trimEnd(); //can be done separately
+
+// fromEntries
+const users = { user1: 18273, user2: 92833, user3: 90315 };
+
+const usersArr = Object.entries(users).map((use) => [use[0], use[1] * 2]);
+
+const userFromEntries = Object.fromEntries(usersArr);

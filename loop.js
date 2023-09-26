@@ -91,3 +91,80 @@ for (var i = 0; i < 100; i++) {
     console.log(i);
   }
 }
+
+// advance Looping
+
+const basket = ["apples", "oranges", "grapes"];
+const detailedBasket = {
+  apples: 5,
+  oranges: 10,
+  grapes: 1000,
+};
+
+// for in
+for (item in detailedBasket) {
+  console.log(item);
+}
+
+// for of
+for (item of basket) {
+  console.log(item);
+}
+
+const array1 = [-1, 0, 3, 100, 99, 2, 99];
+const array2 = ["a", 3, 4, 2];
+const array3 = [];
+
+const biggestNumberInArray1 = (arr) => {
+  let highNum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (highNum < arr[i]) {
+      highNum = arr[i];
+    }
+  }
+  return highNum;
+};
+
+biggestNumberInArray1(array1);
+
+const biggestNumberInArray2 = (arr) => {
+  let highNum = 0;
+  arr.forEach((num) => {
+    if (highNum < num) {
+      highNum = num;
+    }
+  });
+  return highNum;
+};
+
+biggestNumberInArray2(array2);
+
+const biggestNumberInArray3 = (arr) => {
+  let highNum = 0;
+  for (num of arr) {
+    if (highNum < num) {
+      highNum = num;
+    }
+  }
+  return highNum;
+};
+
+biggestNumberInArray3(array3);
+
+// for in
+amazonBasket = {
+  glasses: 1,
+  books: 2,
+  floss: 100,
+};
+
+const checkBasket = (basket, lookingFor) => {
+  for (item in basket) {
+    if (item === lookingFor) {
+      return `${lookingFor} is in the basket`;
+    }
+    return `${lookingFor} is not in the basket`;
+  }
+};
+
+checkBasket(amazonBasket, "books");
